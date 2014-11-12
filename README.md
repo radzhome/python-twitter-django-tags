@@ -5,7 +5,7 @@ Useful python-twitter template tags for use with python-twitter api in your djan
 
 
 Example Usage:
-``
+```html
 <div class="block social-block social-twitter">
     <h1>{% trans "Our Twitter" %}</h1>
     <ul>
@@ -24,6 +24,6 @@ Example Usage:
     </ul>
     <a href="#" class="btn btn-round btn-red">{% trans "Follow Us" %}</a>
 </div>
-``
+```
 
 Make sure to use expand_tweet_urls before urlize_tweet_text
