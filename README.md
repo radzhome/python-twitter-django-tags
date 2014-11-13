@@ -48,7 +48,7 @@ def get_tweets():
                       access_token_key='accesstokenkey',
                       access_token_secret='accesstokensecret')
 
-    return api.GetUserTimeline(screen_name='bakerinc', exclude_replies=True, include_rts=False)  # includes entities
+    return api.GetUserTimeline(screen_name='twitter_screen_name', exclude_replies=True, include_rts=False)  # includes entities
 ```
 
 Usage in your view:
