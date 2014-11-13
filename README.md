@@ -43,10 +43,10 @@ def get_tweets():
     """
     returns twitter feed with settings as described below, contains all related twitter settings
     """
-    api = twitter.Api(consumer_key='7ZoKq116f8z35daiin5PoDyxc',
-                      consumer_secret='snhQqEtA9BON4vEbSg6ZKsfAM0s51DmDoLw67CUArn0EaZlgJS',
-                      access_token_key='44989254-bOXKvUmwxExhk1Mkn3ETVItJCY5Bo3KaLKeilVuJj',
-                      access_token_secret='ugtpGQwHqrf3qI8JD2l0l31ETvA1jfKuAUZTMOuLPcyJR')
+    api = twitter.Api(consumer_key='yourcustomerkey',
+                      consumer_secret='customerkeysecret',
+                      access_token_key='accesstokenkey',
+                      access_token_secret='accesstokensecret')
 
     return api.GetUserTimeline(screen_name='bakerinc', exclude_replies=True, include_rts=False)  # includes entities
 ```
