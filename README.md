@@ -19,6 +19,8 @@ Installation
 
 4. Use the tags inside of your template:
 
+TODO: package it as a reusable app, add to pypi.
+
 ================
 Usage
 ================
