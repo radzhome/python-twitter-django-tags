@@ -3,14 +3,27 @@ python-twitter-django-tags
 
 Useful [python-twitter](https://github.com/bear/python-twitter) template tags for use with [python-twitter](https://github.com/bear/python-twitter) api in your django app. Inspired by [django-twitter-tag](https://github.com/coagulant/django-twitter-tag) app. The same type of template integration was desired with [python-twitter](https://github.com/bear/python-twitter).
 
-Installing it / adding it to your project:
+================
+Dependencies
+================
 
-1. Copy the templatetags folder to the desired django app inside your project
-2. Ensure the appliation that you added the folder to is in your INSTALLED_APPS in your settings.py
+python-twitter: https://github.com/bear/python-twitter
 
-3. Use the tags inside of your template:
+================
+Installation
+================
 
-Example Usage:
+1. Install [python-twitter](https://github.com/bear/python-twitter) for your django project
+2. Copy the templatetags folder to the desired django app inside your project
+3. Ensure the appliation that you added the folder to is in your INSTALLED_APPS in your settings.py
+
+4. Use the tags inside of your template:
+
+================
+Usage
+================
+
+Example usage, assuming that  `tweets` returns a user timeline (See Setting up your view on how to set this up). 
 ```html
 <div class="block social-block social-twitter">
     {% load twitter_tags %}
@@ -32,8 +45,12 @@ Example Usage:
     <a href="#" class="btn btn-round btn-red">{% trans "Follow Us" %}</a>
 </div>
 ```
-Make sure to use expand_tweet_urls before urlize_tweet_text
+NOTE: Make sure to use expand_tweet_urls before urlize_tweet_text
 
+
+================
+Setting up your View
+================
 
 Example get_tweets() function that can be used in your view to retrieve tweets.
 
@@ -56,3 +73,9 @@ Usage in your view:
 from your.utils.lib import get_tweets
 context['tweets'] = get_tweets()
 ```
+
+================
+Getting the code
+================
+
+The code is hosted at https://github.com/bear/python-twitter
