@@ -1,7 +1,7 @@
 python-twitter-django-tags
 ==========================
 
-Useful python-twitter template tags for use with python-twitter api in your django app
+Useful [python-twitter](https://github.com/bear/python-twitter) template tags for use with [python-twitter](https://github.com/bear/python-twitter) api in your django app. Inspired by [django-twitter-tag](https://github.com/coagulant/django-twitter-tag) app. The same type of template integration was desired with [python-twitter](https://github.com/bear/python-twitter).
 
 Installing it / adding it to your project:
 
