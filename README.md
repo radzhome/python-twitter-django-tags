@@ -6,6 +6,12 @@ Useful [python-twitter](https://github.com/bear/python-twitter) template tags fo
 This code is very compact and easily integrates into your existing projects. As of now, I am not planning to package it as a portable reusable app.
 
 ================
+Documentation
+================
+
+http://radlws.github.io/python-twitter-django-tags
+
+================
 Dependencies
 ================
 
