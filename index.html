@@ -1,0 +1,155 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Python-twitter-django-tags</title>
+  <meta name="description" content="Useful python-twitter template tags for use with python-twitter api in your django app">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Python-twitter-django-tags</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">Useful python-twitter template tags for use with python-twitter api in your django app</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/radlws/python-twitter-django-tags/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/radlws/python-twitter-django-tags/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/radlws/python-twitter-django-tags" class="code">View Python-twitter-django-tags on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h3>
+<a id="python-twitter-django-tags" class="anchor" href="#python-twitter-django-tags" aria-hidden="true"><span class="octicon octicon-link"></span></a>python-twitter-django-tags</h3>
+
+<p>Useful <a href="https://github.com/bear/python-twitter">python-twitter</a> template tags for use with <a href="https://github.com/bear/python-twitter">python-twitter</a> api in your django app. Inspired by <a href="https://github.com/coagulant/django-twitter-tag">django-twitter-tag</a> app. The same type of template integration was desired with <a href="https://github.com/bear/python-twitter">python-twitter</a>.</p>
+
+<p>This code is very compact and easily integrates into your existing projects. As of now, I am not planning to package it as a portable reusable app.</p>
+
+<h1></h1>
+
+<h1>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h1>
+
+<p>python-twitter: <a href="https://github.com/bear/python-twitter">https://github.com/bear/python-twitter</a></p>
+
+<p>django: <a href="https://github.com/django/django">https://github.com/django/django</a></p>
+
+<h1></h1>
+
+<h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h1>
+
+<p>Install this into one of your existing django projects simply by copying the 'templatetags' folder into one of your existing apps.</p>
+
+<ol>
+<li>Install <a href="https://github.com/bear/python-twitter">python-twitter</a> for your django project</li>
+<li>Copy the templatetags folder to the desired django app inside your project</li>
+<li><p>Ensure the appliation that you added the folder to is in your INSTALLED_APPS in your settings.py</p></li>
+<li><p>Use the tags inside of your template:</p></li>
+</ol>
+
+<h1></h1>
+
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<p>Example usage, assuming that  <code>tweets</code> returns a user timeline (See Setting up your view on how to set this up). </p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>block social-block social-twitter<span class="pl-pds">"</span></span>&gt;
+    {% load twitter_tags %}
+    &lt;<span class="pl-ent">h1</span>&gt;{% trans "Our Twitter" %}&lt;/<span class="pl-ent">h1</span>&gt;
+    &lt;<span class="pl-ent">ul</span>&gt;
+        {% for tweet in tweets %}
+        &lt;<span class="pl-ent">li</span>&gt;
+            &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>tweet-meta<span class="pl-pds">"</span></span>&gt;
+                &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>https://www.twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id }}<span class="pl-pds">"</span></span> <span class="pl-e">target</span>=<span class="pl-s1"><span class="pl-pds">"</span>_blank<span class="pl-pds">"</span></span>&gt;
+                    &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>{{ tweet.user.profile_image_url }}<span class="pl-pds">"</span></span> <span class="pl-e">width</span>=<span class="pl-s1"><span class="pl-pds">"</span>32<span class="pl-pds">"</span></span> <span class="pl-e">height</span>=<span class="pl-s1"><span class="pl-pds">"</span>32<span class="pl-pds">"</span></span> /&gt;
+                    &lt;<span class="pl-ent">h2</span>&gt;{{ tweet.user.name }}&lt;<span class="pl-ent">br</span> /&gt;&lt;<span class="pl-ent">span</span>&gt;@{{ tweet.user.screen_name }} <span class="pl-c1">&amp;middot;</span> {{ tweet.created_at|twitter_date }}&lt;/<span class="pl-ent">span</span>&gt;&lt;/<span class="pl-ent">h2</span>&gt;
+                &lt;/<span class="pl-ent">a</span>&gt;
+            &lt;/<span class="pl-ent">div</span>&gt;
+            &lt;<span class="pl-ent">p</span>&gt;{{ tweet|expand_tweet_urls|urlize_tweet_text|safe }}&lt;/<span class="pl-ent">p</span>&gt;
+        &lt;/<span class="pl-ent">li</span>&gt;
+        {% endfor %}
+
+    &lt;/<span class="pl-ent">ul</span>&gt;
+    &lt;<span class="pl-ent">a</span> <span class="pl-e">href</span>=<span class="pl-s1"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s1"><span class="pl-pds">"</span>btn btn-round btn-red<span class="pl-pds">"</span></span>&gt;{% trans "Follow Us" %}&lt;/<span class="pl-ent">a</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p>NOTE: Make sure to use expand_tweet_urls before urlize_tweet_text</p>
+
+<h1></h1>
+
+<h1>
+<a id="setting-up-your-view" class="anchor" href="#setting-up-your-view" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setting up your View</h1>
+
+<p>Example get_tweets() function that can be used in your view to retrieve tweets.</p>
+
+<div class="highlight highlight-python"><pre><span class="pl-k">import</span> twitter
+<span class="pl-st">def</span> <span class="pl-en">get_tweets</span>():
+    <span class="pl-s1"><span class="pl-pds">"""</span></span>
+<span class="pl-s1">    returns twitter feed with settings as described below, contains all related twitter settings</span>
+<span class="pl-s1">    <span class="pl-pds">"""</span></span>
+    api <span class="pl-k">=</span> twitter.Api(<span class="pl-vpf">consumer_key</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">'</span>yourcustomerkey<span class="pl-pds">'</span></span>,
+                      <span class="pl-vpf">consumer_secret</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">'</span>customerkeysecret<span class="pl-pds">'</span></span>,
+                      <span class="pl-vpf">access_token_key</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">'</span>accesstokenkey<span class="pl-pds">'</span></span>,
+                      <span class="pl-vpf">access_token_secret</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">'</span>accesstokensecret<span class="pl-pds">'</span></span>)
+
+    <span class="pl-k">return</span> api.GetUserTimeline(<span class="pl-vpf">screen_name</span><span class="pl-k">=</span><span class="pl-s1"><span class="pl-pds">'</span>twitter_screen_name<span class="pl-pds">'</span></span>, <span class="pl-vpf">exclude_replies</span><span class="pl-k">=</span><span class="pl-c1">True</span>, <span class="pl-vpf">include_rts</span><span class="pl-k">=</span><span class="pl-c1">False</span>)  <span class="pl-c"># includes entities</span></pre></div>
+
+<p>Usage in your view:</p>
+
+<div class="highlight highlight-python"><pre><span class="pl-k">from</span> your.utils.lib <span class="pl-k">import</span> get_tweets
+context[<span class="pl-s1"><span class="pl-pds">'</span>tweets<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> get_tweets()</pre></div>
+
+<h1></h1>
+
+<h1>
+<a id="getting-the-code" class="anchor" href="#getting-the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting the code</h1>
+
+<p>The code is hosted at <a href="https://github.com/radlws/python-twitter-django-tags">https://github.com/radlws/python-twitter-django-tags</a>. For python twitter, the code is hosted at <a href="https://github.com/bear/python-twitter">https://github.com/bear/python-twitter</a></p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p><a href="http://www.github.com/radlws">www.github.com/radlws</a></p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/radlws" class="avatar"><img src="https://avatars0.githubusercontent.com/u/2678007?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/radlws">radlws</a> maintains <a href="https://github.com/radlws/python-twitter-django-tags">Python-twitter-django-tags</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/radlws/python-twitter-django-tags/tarball/master" class="tar">tar</a><a href="https://github.com/radlws/python-twitter-django-tags/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
