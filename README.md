@@ -8,10 +8,13 @@ Dependencies
 ================
 
 python-twitter: https://github.com/bear/python-twitter
+django: https://github.com/django/django
 
 ================
 Installation
 ================
+
+Install this into one of your existing django projects simply by copying the 'templatetags' folder into one of your existing apps.
 
 1. Install [python-twitter](https://github.com/bear/python-twitter) for your django project
 2. Copy the templatetags folder to the desired django app inside your project
@@ -79,5 +82,5 @@ context['tweets'] = get_tweets()
 ================
 Getting the code
 ================
-
-The code is hosted at https://github.com/bear/python-twitter
+The code is hosted at https://github.com/radlws/python-twitter-django-tags
+For python twitter, the code is hosted at https://github.com/bear/python-twitter
