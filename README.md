@@ -8,6 +8,7 @@ Dependencies
 ================
 
 python-twitter: https://github.com/bear/python-twitter
+
 django: https://github.com/django/django
 
 ================
