@@ -84,5 +84,4 @@ context['tweets'] = get_tweets()
 ================
 Getting the code
 ================
-The code is hosted at https://github.com/radlws/python-twitter-django-tags
-For python twitter, the code is hosted at https://github.com/bear/python-twitter
+The code is hosted at https://github.com/radlws/python-twitter-django-tags. For python twitter, the code is hosted at https://github.com/bear/python-twitter
