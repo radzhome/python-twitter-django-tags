@@ -9,7 +9,7 @@ This code is very compact and easily integrates into your existing projects. As 
 Documentation
 ================
 
-http://radlws.github.io/python-twitter-django-tags
+It's pretty straight forward. See usage below.
 
 ================
 Dependencies
