@@ -9,7 +9,7 @@ This code is very compact and easily integrates into your existing projects. As 
 Documentation
 ================
 
-It's pretty straight forward. See usage below.
+It's pretty straight forward. See [usage](#usage) below.
 
 ================
 Dependencies
